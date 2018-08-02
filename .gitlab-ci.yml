@@ -26,25 +26,31 @@ install-go:
     - mkdir -p $HOME/golang # for GOROOT (contains the Go binary & core packages)
     - mkdir -p $HOME/gopath # for GOPATH (contains code and external packages)
     - curl http://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz 2>/dev/null > go1.5.2.linux-amd64.tar.gz
-    - tar -C $HOME/golang -xzf go1.5.2.linux-amd64.tar.gz
+    - tar -C $HOME/golang -xzf go1.9.1.linux-amd64.tar.gz
     - export GOROOT=$HOME/golang/go
     - export GOPATH=$HOME/gopath
     - export PATH=$PATH:$GOROOT/bin
     - export PATH=$PATH:$GOPATH/bin
-    - (if [[ "$(go version)" == *"go version go1.5"* ]]; then echo "✓ Go binary installed!"; else echo "Go binary not installed"; exit -1; fi);
+    - (if [[ "$(go version)" == *"go version go1.9"* ]]; then echo "✓ Go binary installed!"; else echo "Go binary not installed"; exit -1; fi);
     - go version
     - echo $PATH
     - go env
     - which go
 
-build-maya:
-  stage: build
-  script:
-    - cd $CURRENT_BUILD_PATH
-    - go build
 
-test-my-project:
-  stage: test
-  script:
-    - cd $CURRENT_BUILD_PATH
-    - go test
+build-maya:
+   stage: build
+   script: echo "hello"
+
+
+#build-maya:
+#  stage: build
+#  script:
+#    - cd $CURRENT_BUILD_PATH
+#    - go build
+
+#test-my-project:
+#  stage: test
+#  script:
+#    - cd $CURRENT_BUILD_PATH
+#    - go test
