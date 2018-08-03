@@ -19,7 +19,8 @@ stages:
 install-go:
   stage: install-environment
   script:
-    - apt-get install curl
+    - apt-get update
+    - apt-get -qq -y install curl
     - export CURRENT_BUILD_PATH=$(pwd)
     - echo $PATH
     - rm -rf $HOME/golang
