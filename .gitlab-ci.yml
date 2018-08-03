@@ -19,8 +19,8 @@ stages:
 install-go:
   stage: install-environment
   script:
-    - apt-get install sudo
     - apt-get update
+    - apt-get install sudo
     - apt-get -qq -y install curl
     - export CURRENT_BUILD_PATH=$(pwd)
     - echo $PATH
