@@ -110,7 +110,7 @@ bootstrap:
 
 maya-image:
 	@cp bin/maya/${MAYACTL} buildscripts/mayactl/
-	@cd buildscripts/mayactl && sudo docker build -t openebs/maya:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
+	@cd buildscripts/mayactl && sudo docker build -t atul/maya:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
 	@rm buildscripts/mayactl/${MAYACTL}
 	@sh buildscripts/mayactl/push
 
@@ -130,7 +130,7 @@ pool-mgmt-image: cstor-pool-mgmt
 	@echo "--> cstor-pool-mgmt image         "
 	@echo "----------------------------"
 	@cp bin/cstor-pool-mgmt/${POOL_MGMT} buildscripts/cstor-pool-mgmt/
-	@cd buildscripts/cstor-pool-mgmt && sudo docker build -t openebs/cstor-pool-mgmt:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} . --no-cache
+	@cd buildscripts/cstor-pool-mgmt && sudo docker build -t atul/cstor-pool-mgmt:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} . --no-cache
 	@rm buildscripts/cstor-pool-mgmt/${POOL_MGMT}
 	@sh buildscripts/cstor-pool-mgmt/push
 
@@ -146,7 +146,7 @@ volume-mgmt-image: cstor-volume-mgmt
 	@echo "--> cstor-volume-mgmt image         "
 	@echo "----------------------------"
 	@cp bin/cstor-volume-mgmt/${VOLUME_MGMT} buildscripts/cstor-volume-mgmt/
-	@cd buildscripts/cstor-volume-mgmt && sudo docker build -t openebs/cstor-volume-mgmt:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
+	@cd buildscripts/cstor-volume-mgmt && sudo docker build -t atul/cstor-volume-mgmt:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
 	@rm buildscripts/cstor-volume-mgmt/${VOLUME_MGMT}
 	@sh buildscripts/cstor-volume-mgmt/push
 
@@ -163,7 +163,7 @@ agent-image: maya-agent
 	@echo "--> m-agent image         "
 	@echo "----------------------------"
 	@cp bin/agent/${AGENT} buildscripts/agent/
-	@cd buildscripts/agent && sudo docker build -t openebs/m-agent:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
+	@cd buildscripts/agent && sudo docker build -t atul/m-agent:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
 	@rm buildscripts/agent/${AGENT}
 	@sh buildscripts/agent/push
 
@@ -180,7 +180,7 @@ exporter-image: exporter
 	@echo "--> m-exporter image         "
 	@echo "----------------------------"
 	@cp bin/exporter/${EXPORTER} buildscripts/exporter/
-	@cd buildscripts/exporter && sudo docker build -t openebs/m-exporter:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
+	@cd buildscripts/exporter && sudo docker build -t atul/m-exporter:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
 	@rm buildscripts/exporter/${EXPORTER}
 	@sh buildscripts/exporter/push
 
@@ -199,7 +199,7 @@ apiserver-image: mayactl apiserver
 	@echo "----------------------------"
 	@cp bin/apiserver/${APISERVER} buildscripts/apiserver/
 	@cp bin/maya/${MAYACTL} buildscripts/apiserver/
-	@cd buildscripts/apiserver && sudo docker build -t openebs/m-apiserver:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
+	@cd buildscripts/apiserver && sudo docker build -t atul/m-apiserver:${IMAGE_TAG} --build-arg BUILD_DATE=${BUILD_DATE} .
 	@rm buildscripts/apiserver/${APISERVER}
 	@rm buildscripts/apiserver/${MAYACTL}
 	@sh buildscripts/apiserver/push
