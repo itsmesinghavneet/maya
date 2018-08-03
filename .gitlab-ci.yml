@@ -19,13 +19,14 @@ stages:
 install-go:
   stage: install-environment
   script:
+    - apt-install curl
     - export CURRENT_BUILD_PATH=$(pwd)
     - echo $PATH
     - rm -rf $HOME/golang
     - rm -rf $HOME/gopath
     - mkdir -p $HOME/golang # for GOROOT (contains the Go binary & core packages)
     - mkdir -p $HOME/gopath # for GOPATH (contains code and external packages)
-    - wget http://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz -O go1.9.1.linux-amd64.tar.gz
+    - curl http://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz > go1.9.1.linux-amd64.tar.gz
     - tar -C $HOME/golang -xzf go1.9.1.linux-amd64.tar.gz
     - export GOROOT=$HOME/golang/go
     - export GOPATH=$HOME/gopath
